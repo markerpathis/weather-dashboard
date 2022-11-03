@@ -17,4 +17,8 @@ fetch(requestUrl)
   })
   .then(function (data) {
     console.log(data);
+    var lat = data.city.coord.lat;
+    console.log(lat);
+    var lon = data.city.coord.lon;
+    console.log(lon);
   });
