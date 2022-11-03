@@ -7,6 +7,63 @@ var forecastDay4 = "";
 var forecastDay5 = "";
 var forecastDay6 = "";
 
+var forecast = [
+  {
+    name: "day-current",
+    list: 0,
+    date: "",
+    temp: "",
+    wind: "",
+    humidity: "",
+    icon: "",
+  },
+  {
+    name: "day-one",
+    list: 7,
+    date: "",
+    temp: "",
+    wind: "",
+    humidity: "",
+    icon: "",
+  },
+  {
+    name: "day-two",
+    list: 15,
+    date: "",
+    temp: "",
+    wind: "",
+    humidity: "",
+    icon: "",
+  },
+  {
+    name: "day-three",
+    list: 23,
+    date: "",
+    temp: "",
+    wind: "",
+    humidity: "",
+    icon: "",
+  },
+  {
+    name: "day-four",
+    list: 31,
+    date: "",
+    temp: "",
+    wind: "",
+    humidity: "",
+    icon: "",
+  },
+  {
+    name: "day-five",
+    list: 39,
+    date: "",
+    temp: "",
+    wind: "",
+    humidity: "",
+    icon: "",
+  },
+];
+
 searchButtonEl.on("click", function (event) {
   event.preventDefault();
   cityInputVal = $("#city-input").val();
@@ -36,4 +93,3 @@ searchButtonEl.on("click", function (event) {
     }
   })();
 });
-
