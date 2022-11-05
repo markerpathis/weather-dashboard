@@ -89,10 +89,10 @@ searchButtonEl.on("click", function (event) {
       forecastFull[4] = forecastSearchData.list[24];
       forecastFull[5] = forecastSearchData.list[32];
       console.log(forecastFull);
-      // for (var i = 0; i < forecast.length; i++) {
-      //   forecast[i].date = forecastSearchData.list
+      // for (var i = 0; i < forecastFull.length; i++) {
+      //   var unixFormat = moment.unix(forecastFull[i].dt).format("MM/DD/YYYY");
+      //   console.log(unixFormat);
       // }
-      // return;
     } catch (error) {
       console.log("Error: " + error);
     }

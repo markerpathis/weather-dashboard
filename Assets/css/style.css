@@ -1,7 +1,15 @@
 .jumbotron {
-    text-align: center;
-    background-color: transparent;
-    color: black;
-    border-radius: 0;
-    border-bottom: 10px solid black;
-  }
+  text-align: center;
+  background-color: transparent;
+  color: black;
+  border-radius: 0;
+  border-bottom: 10px solid black;
+}
+
+.column1 {
+  background-color: red;
+}
+
+.column2 {
+  background-color: blue;
+}
