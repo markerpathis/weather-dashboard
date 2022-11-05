@@ -7,7 +7,7 @@ var forecastDay4 = "";
 var forecastDay5 = "";
 var forecastDay6 = "";
 
-var forecast = [
+var forecastFull = [
   {
     name: "day-current",
     list: 0,
@@ -77,17 +77,22 @@ searchButtonEl.on("click", function (event) {
           "&appid=7e84530e4048780b769d94acf3761dbf"
       );
       const coordSearchData = await coordSearch.json();
+      forecastFull[0] = coordSearchData;
       const forecastSearch = await fetch(
         `https://api.openweathermap.org/data/2.5/forecast?lat=${coordSearchData.coord.lat}&lon=${coordSearchData.coord.lon}&appid=7e84530e4048780b769d94acf3761dbf`
       );
       const forecastSearchData = await forecastSearch.json();
       console.log(forecastSearchData);
-      forecastDay1 = forecastSearchData.list[0];
-      forecastDay2 = forecastSearchData.list[7];
-      forecastDay3 = forecastSearchData.list[15];
-      forecastDay4 = forecastSearchData.list[23];
-      forecastDay5 = forecastSearchData.list[31];
-      forecastDay6 = forecastSearchData.list[39];
+      forecastFull[1] = forecastSearchData.list[0];
+      forecastFull[2] = forecastSearchData.list[8];
+      forecastFull[3] = forecastSearchData.list[16];
+      forecastFull[4] = forecastSearchData.list[24];
+      forecastFull[5] = forecastSearchData.list[32];
+      console.log(forecastFull);
+      // for (var i = 0; i < forecast.length; i++) {
+      //   forecast[i].date = forecastSearchData.list
+      // }
+      // return;
     } catch (error) {
       console.log("Error: " + error);
     }
