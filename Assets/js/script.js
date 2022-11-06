@@ -104,26 +104,50 @@ searchButtonEl.on("click", function (event) {
       $("#forecast-4-icon").text(forecastFull[4].weather[0].icon);
       $("#forecast-5-icon").text(forecastFull[5].weather[0].icon);
       // TEMP
-      $("#forecast-0-temp").append(" " + forecastFull[0].main.temp + " ℉");
-      $("#forecast-1-temp").append(" " + forecastFull[1].main.temp + " ℉");
-      $("#forecast-2-temp").append(" " + forecastFull[2].main.temp + " ℉");
-      $("#forecast-3-temp").append(" " + forecastFull[3].main.temp + " ℉");
-      $("#forecast-4-temp").append(" " + forecastFull[4].main.temp + " ℉");
-      $("#forecast-5-temp").append(" " + forecastFull[5].main.temp + " ℉");
+      $("#forecast-0-temp").text("Temp: " + forecastFull[0].main.temp + " ℉");
+      $("#forecast-1-temp").text("Temp: " + forecastFull[1].main.temp + " ℉");
+      $("#forecast-2-temp").text("Temp: " + forecastFull[2].main.temp + " ℉");
+      $("#forecast-3-temp").text("Temp: " + forecastFull[3].main.temp + " ℉");
+      $("#forecast-4-temp").text("Temp: " + forecastFull[4].main.temp + " ℉");
+      $("#forecast-5-temp").text("Temp: " + forecastFull[5].main.temp + " ℉");
       // WIND
-      $("#forecast-0-wind").append(" " + forecastFull[0].wind.speed + " MPH");
-      $("#forecast-1-wind").append(" " + forecastFull[1].wind.speed + " MPH");
-      $("#forecast-2-wind").append(" " + forecastFull[2].wind.speed + " MPH");
-      $("#forecast-3-wind").append(" " + forecastFull[3].wind.speed + " MPH");
-      $("#forecast-4-wind").append(" " + forecastFull[4].wind.speed + " MPH");
-      $("#forecast-5-wind").append(" " + forecastFull[5].wind.speed + " MPH");
+      $("#forecast-0-wind").text(
+        "Wind: " + forecastFull[0].wind.speed + " MPH"
+      );
+      $("#forecast-1-wind").text(
+        "Wind: " + forecastFull[1].wind.speed + " MPH"
+      );
+      $("#forecast-2-wind").text(
+        "Wind: " + forecastFull[2].wind.speed + " MPH"
+      );
+      $("#forecast-3-wind").text(
+        "Wind: " + forecastFull[3].wind.speed + " MPH"
+      );
+      $("#forecast-4-wind").text(
+        "Wind: " + forecastFull[4].wind.speed + " MPH"
+      );
+      $("#forecast-5-wind").text(
+        "Wind: " + forecastFull[5].wind.speed + " MPH"
+      );
       // HUMIDITY
-      $("#forecast-0-humid").append(" " + forecastFull[0].main.humidity + " %");
-      $("#forecast-1-humid").append(" " + forecastFull[1].main.humidity + " %");
-      $("#forecast-2-humid").append(" " + forecastFull[2].main.humidity + " %");
-      $("#forecast-3-humid").append(" " + forecastFull[3].main.humidity + " %");
-      $("#forecast-4-humid").append(" " + forecastFull[4].main.humidity + " %");
-      $("#forecast-5-humid").append(" " + forecastFull[5].main.humidity + " %");
+      $("#forecast-0-humid").text(
+        "Humidity: " + forecastFull[0].main.humidity + " %"
+      );
+      $("#forecast-1-humid").text(
+        "Humidity: " + forecastFull[1].main.humidity + " %"
+      );
+      $("#forecast-2-humid").text(
+        "Humidity: " + forecastFull[2].main.humidity + " %"
+      );
+      $("#forecast-3-humid").text(
+        "Humidity: " + forecastFull[3].main.humidity + " %"
+      );
+      $("#forecast-4-humid").text(
+        "Humidity: " + forecastFull[4].main.humidity + " %"
+      );
+      $("#forecast-5-humid").text(
+        "Humidity: " + forecastFull[5].main.humidity + " %"
+      );
       // for (var i = 0; i < forecastFull.length; i++) {
       //   var unixFormat = moment.unix(forecastFull[i].dt).format("MM/DD/YYYY");
       //   console.log(unixFormat);
