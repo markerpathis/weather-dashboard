@@ -97,12 +97,43 @@ searchButtonEl.on("click", function (event) {
       $("#forecast-4-date").text(forecastFull[4].dt);
       $("#forecast-5-date").text(forecastFull[5].dt);
       // ICONS
-      $("#forecast-0-icon").text(forecastFull[0].weather[0].icon);
-      $("#forecast-1-icon").text(forecastFull[1].weather[0].icon);
-      $("#forecast-2-icon").text(forecastFull[2].weather[0].icon);
-      $("#forecast-3-icon").text(forecastFull[3].weather[0].icon);
-      $("#forecast-4-icon").text(forecastFull[4].weather[0].icon);
-      $("#forecast-5-icon").text(forecastFull[5].weather[0].icon);
+      $("#forecast-0-icon").attr(
+        "src",
+        "http://openweathermap.org/img/w/" +
+          forecastFull[0].weather[0].icon +
+          ".png"
+      );
+      $("#forecast-1-icon").attr(
+        "src",
+        "http://openweathermap.org/img/w/" +
+          forecastFull[1].weather[0].icon +
+          ".png"
+      );
+      $("#forecast-2-icon").attr(
+        "src",
+        "http://openweathermap.org/img/w/" +
+          forecastFull[2].weather[0].icon +
+          ".png"
+      );
+      $("#forecast-3-icon").attr(
+        "src",
+        "http://openweathermap.org/img/w/" +
+          forecastFull[3].weather[0].icon +
+          ".png"
+      );
+      $("#forecast-4-icon").attr(
+        "src",
+        "http://openweathermap.org/img/w/" +
+          forecastFull[4].weather[0].icon +
+          ".png"
+      );
+      $("#forecast-5-icon").attr(
+        "src",
+        "http://openweathermap.org/img/w/" +
+          forecastFull[5].weather[0].icon +
+          ".png"
+      );
+
       // TEMP
       $("#forecast-0-temp").text("Temp: " + forecastFull[0].main.temp + " ℉");
       $("#forecast-1-temp").text("Temp: " + forecastFull[1].main.temp + " ℉");
