@@ -84,11 +84,11 @@ searchButtonEl.on("click", function (event) {
       );
       const forecastSearchData = await forecastSearch.json();
       console.log(forecastSearchData);
-      forecastFull[1] = forecastSearchData.list[0];
-      forecastFull[2] = forecastSearchData.list[8];
-      forecastFull[3] = forecastSearchData.list[16];
-      forecastFull[4] = forecastSearchData.list[24];
-      forecastFull[5] = forecastSearchData.list[32];
+      forecastFull[1] = forecastSearchData.list[6];
+      forecastFull[2] = forecastSearchData.list[14];
+      forecastFull[3] = forecastSearchData.list[22];
+      forecastFull[4] = forecastSearchData.list[30];
+      forecastFull[5] = forecastSearchData.list[38];
       console.log(forecastFull);
       // DATE
       $("#forecast-0-date").text(forecastFull[0].dt);
@@ -97,10 +97,17 @@ searchButtonEl.on("click", function (event) {
       $("#forecast-3-date").text(forecastFull[3].dt);
       $("#forecast-4-date").text(forecastFull[4].dt);
       $("#forecast-5-date").text(forecastFull[5].dt);
-      // ICONS
+
       var forecastIconsEl = document.querySelectorAll(".forecast-icons");
 
       for (var i = 0; i < forecastIconsEl.length; i++) {
+        $(".forecast-date").each(function (i) {
+          const unixFormat = moment
+            .unix(forecastFull[i].dt)
+            .local()
+            .format("MM/DD/YYYY");
+          $(this).text(unixFormat);
+        });
         forecastIconsEl[i].setAttribute(
           "src",
           "http://openweathermap.org/img/w/" +
@@ -117,11 +124,6 @@ searchButtonEl.on("click", function (event) {
           $(this).text("Humidity: " + forecastFull[i].main.humidity + " %");
         });
       }
-
-      // for (var i = 0; i < forecastFull.length; i++) {
-      //   var unixFormat = moment.unix(forecastFull[i].dt).format("MM/DD/YYYY");
-      //   console.log(unixFormat);
-      // }
     } catch (error) {
       console.log("Error: " + error);
     }
