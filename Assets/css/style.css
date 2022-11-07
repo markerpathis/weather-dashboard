@@ -6,10 +6,20 @@
   border-bottom: 10px solid black;
 }
 
-.column1 {
+/* .column1 {
   background-color: red;
 }
 
 .column2 {
   background-color: blue;
+} */
+
+#full-forecast {
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
+/* 
+.forecast-current {
+  border: 20px;
+  border-color: green;
+} */
