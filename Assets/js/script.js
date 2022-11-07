@@ -113,28 +113,11 @@ searchButtonEl.on("click", function (event) {
         $(".forecast-wind").each(function (i) {
           $(this).text("Wind: " + forecastFull[i].wind.speed + " MPH");
         });
-        
+        $(".forecast-humid").each(function (i) {
+          $(this).text("Humidity: " + forecastFull[i].main.humidity + " %");
+        });
       }
 
-      // HUMIDITY
-      $("#forecast-0-humid").text(
-        "Humidity: " + forecastFull[0].main.humidity + " %"
-      );
-      $("#forecast-1-humid").text(
-        "Humidity: " + forecastFull[1].main.humidity + " %"
-      );
-      $("#forecast-2-humid").text(
-        "Humidity: " + forecastFull[2].main.humidity + " %"
-      );
-      $("#forecast-3-humid").text(
-        "Humidity: " + forecastFull[3].main.humidity + " %"
-      );
-      $("#forecast-4-humid").text(
-        "Humidity: " + forecastFull[4].main.humidity + " %"
-      );
-      $("#forecast-5-humid").text(
-        "Humidity: " + forecastFull[5].main.humidity + " %"
-      );
       // for (var i = 0; i < forecastFull.length; i++) {
       //   var unixFormat = moment.unix(forecastFull[i].dt).format("MM/DD/YYYY");
       //   console.log(unixFormat);
