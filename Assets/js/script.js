@@ -1,69 +1,7 @@
 var cityInputVal = "";
 var searchButtonEl = $("#search-button");
-var forecastDay1 = "";
-var forecastDay2 = "";
-var forecastDay3 = "";
-var forecastDay4 = "";
-var forecastDay5 = "";
-var forecastDay6 = "";
-// var forecastIconsEl = document.querySelectorAll(".forecast-icons");
 
-var forecastFull = [
-  {
-    name: "day-current",
-    list: 0,
-    date: "",
-    temp: "",
-    wind: "",
-    humidity: "",
-    icon: "",
-  },
-  {
-    name: "day-one",
-    list: 7,
-    date: "",
-    temp: "",
-    wind: "",
-    humidity: "",
-    icon: "",
-  },
-  {
-    name: "day-two",
-    list: 15,
-    date: "",
-    temp: "",
-    wind: "",
-    humidity: "",
-    icon: "",
-  },
-  {
-    name: "day-three",
-    list: 23,
-    date: "",
-    temp: "",
-    wind: "",
-    humidity: "",
-    icon: "",
-  },
-  {
-    name: "day-four",
-    list: 31,
-    date: "",
-    temp: "",
-    wind: "",
-    humidity: "",
-    icon: "",
-  },
-  {
-    name: "day-five",
-    list: 39,
-    date: "",
-    temp: "",
-    wind: "",
-    humidity: "",
-    icon: "",
-  },
-];
+var forecastFull = [];
 
 searchButtonEl.on("click", function (event) {
   event.preventDefault();
