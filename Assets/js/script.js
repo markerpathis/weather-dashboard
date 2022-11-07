@@ -6,6 +6,7 @@ var forecastDay3 = "";
 var forecastDay4 = "";
 var forecastDay5 = "";
 var forecastDay6 = "";
+// var forecastIconsEl = document.querySelectorAll(".forecast-icons");
 
 var forecastFull = [
   {
@@ -97,69 +98,24 @@ searchButtonEl.on("click", function (event) {
       $("#forecast-4-date").text(forecastFull[4].dt);
       $("#forecast-5-date").text(forecastFull[5].dt);
       // ICONS
-      $("#forecast-0-icon").attr(
-        "src",
-        "http://openweathermap.org/img/w/" +
-          forecastFull[0].weather[0].icon +
-          ".png"
-      );
-      $("#forecast-1-icon").attr(
-        "src",
-        "http://openweathermap.org/img/w/" +
-          forecastFull[1].weather[0].icon +
-          ".png"
-      );
-      $("#forecast-2-icon").attr(
-        "src",
-        "http://openweathermap.org/img/w/" +
-          forecastFull[2].weather[0].icon +
-          ".png"
-      );
-      $("#forecast-3-icon").attr(
-        "src",
-        "http://openweathermap.org/img/w/" +
-          forecastFull[3].weather[0].icon +
-          ".png"
-      );
-      $("#forecast-4-icon").attr(
-        "src",
-        "http://openweathermap.org/img/w/" +
-          forecastFull[4].weather[0].icon +
-          ".png"
-      );
-      $("#forecast-5-icon").attr(
-        "src",
-        "http://openweathermap.org/img/w/" +
-          forecastFull[5].weather[0].icon +
-          ".png"
-      );
+      var forecastIconsEl = document.querySelectorAll(".forecast-icons");
 
-      // TEMP
-      $("#forecast-0-temp").text("Temp: " + forecastFull[0].main.temp + " ℉");
-      $("#forecast-1-temp").text("Temp: " + forecastFull[1].main.temp + " ℉");
-      $("#forecast-2-temp").text("Temp: " + forecastFull[2].main.temp + " ℉");
-      $("#forecast-3-temp").text("Temp: " + forecastFull[3].main.temp + " ℉");
-      $("#forecast-4-temp").text("Temp: " + forecastFull[4].main.temp + " ℉");
-      $("#forecast-5-temp").text("Temp: " + forecastFull[5].main.temp + " ℉");
-      // WIND
-      $("#forecast-0-wind").text(
-        "Wind: " + forecastFull[0].wind.speed + " MPH"
-      );
-      $("#forecast-1-wind").text(
-        "Wind: " + forecastFull[1].wind.speed + " MPH"
-      );
-      $("#forecast-2-wind").text(
-        "Wind: " + forecastFull[2].wind.speed + " MPH"
-      );
-      $("#forecast-3-wind").text(
-        "Wind: " + forecastFull[3].wind.speed + " MPH"
-      );
-      $("#forecast-4-wind").text(
-        "Wind: " + forecastFull[4].wind.speed + " MPH"
-      );
-      $("#forecast-5-wind").text(
-        "Wind: " + forecastFull[5].wind.speed + " MPH"
-      );
+      for (var i = 0; i < forecastIconsEl.length; i++) {
+        forecastIconsEl[i].setAttribute(
+          "src",
+          "http://openweathermap.org/img/w/" +
+            forecastFull[i].weather[0].icon +
+            ".png"
+        );
+        $(".forecast-temps").each(function (i) {
+          $(this).text("Temp: " + forecastFull[i].main.temp + " ℉");
+        });
+        $(".forecast-wind").each(function (i) {
+          $(this).text("Wind: " + forecastFull[i].wind.speed + " MPH");
+        });
+        
+      }
+
       // HUMIDITY
       $("#forecast-0-humid").text(
         "Humidity: " + forecastFull[0].main.humidity + " %"
