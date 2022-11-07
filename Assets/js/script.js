@@ -90,17 +90,9 @@ searchButtonEl.on("click", function (event) {
       forecastFull[4] = forecastSearchData.list[30];
       forecastFull[5] = forecastSearchData.list[38];
       console.log(forecastFull);
-      // DATE
-      $("#forecast-0-date").text(forecastFull[0].dt);
-      $("#forecast-1-date").text(forecastFull[1].dt);
-      $("#forecast-2-date").text(forecastFull[2].dt);
-      $("#forecast-3-date").text(forecastFull[3].dt);
-      $("#forecast-4-date").text(forecastFull[4].dt);
-      $("#forecast-5-date").text(forecastFull[5].dt);
 
-      var forecastIconsEl = document.querySelectorAll(".forecast-icons");
-
-      for (var i = 0; i < forecastIconsEl.length; i++) {
+      for (var i = 0; i < forecastFull.length; i++) {
+        $("#city-name").text(cityInputVal);
         $(".forecast-date").each(function (i) {
           const unixFormat = moment
             .unix(forecastFull[i].dt)
@@ -108,12 +100,14 @@ searchButtonEl.on("click", function (event) {
             .format("MM/DD/YYYY");
           $(this).text(unixFormat);
         });
-        forecastIconsEl[i].setAttribute(
-          "src",
-          "http://openweathermap.org/img/w/" +
-            forecastFull[i].weather[0].icon +
-            ".png"
-        );
+        $(".forecast-icons").each(function (i) {
+          $(this).attr(
+            "src",
+            "http://openweathermap.org/img/w/" +
+              forecastFull[i].weather[0].icon +
+              ".png"
+          );
+        });
         $(".forecast-temps").each(function (i) {
           $(this).text("Temp: " + forecastFull[i].main.temp + " ℉");
         });
