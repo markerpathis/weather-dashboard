@@ -1,4 +1,5 @@
 var cityInputVal = "";
+var citySearchListEl = document.querySelector("#citySearchList");
 var forecastFull = [];
 var cityList = [];
 
@@ -35,7 +36,7 @@ $("button").on("click", function (event) {
 
       cityList.push(cityInputVal);
       storeCities();
-    
+      renderCityList();
     } catch (error) {
       console.log("Error: " + error);
     }
@@ -78,4 +79,13 @@ function storeCities() {
   localStorage.setItem("cityList", JSON.stringify(cityList));
 }
 
+function renderCityList() {
+  citySearchListEl.innerHTML = "";
+  for (var i = 0; i < cityList.length; i++) {
+    var citySearch = cityList[i];
 
+    var button = document.createElement("button");
+    button.textContent = citySearch;
+    citySearchListEl.appendChild(button);
+  }
+}
