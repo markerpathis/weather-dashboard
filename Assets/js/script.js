@@ -1,9 +1,7 @@
 var cityInputVal = "";
-var searchButtonEl = $("#search-button");
-
 var forecastFull = [];
 
-searchButtonEl.on("click", function (event) {
+$("#search-button").on("click", function (event) {
   event.preventDefault();
   cityInputVal = $("#city-input").val();
   console.log(cityInputVal);
@@ -61,3 +59,7 @@ searchButtonEl.on("click", function (event) {
     }
   })();
 });
+
+function init() {
+
+}
