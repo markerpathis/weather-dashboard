@@ -41,11 +41,13 @@ function init() {
 // Populates the forecast cards
 function populateCards() {
   for (var i = 0; i < forecastFull.length; i++) {
+    // populates city name at the top of the current forecast section
     if (cityInputVal === "") {
       $("#city-name").text(cityListVal);
     } else {
       $("#city-name").text(cityInputVal);
     }
+    // populates forcast dates from array, converts from unix
     $(".forecast-date").each(function (i) {
       const unixFormat = moment
         .unix(forecastFull[i].dt)
@@ -53,6 +55,7 @@ function populateCards() {
         .format("MM/DD/YYYY");
       $(this).text(unixFormat);
     });
+    // populates the forecast icons from array
     $(".forecast-icons").each(function (i) {
       $(this).attr(
         "src",
@@ -61,12 +64,15 @@ function populateCards() {
           ".png"
       );
     });
+    // populates the temperatues from array
     $(".forecast-temps").each(function (i) {
       $(this).text("Temp: " + forecastFull[i].main.temp + " ℉");
     });
+    // populates the wind speeds from array
     $(".forecast-wind").each(function (i) {
       $(this).text("Wind: " + forecastFull[i].wind.speed + " MPH");
     });
+    // populates humidity from array
     $(".forecast-humid").each(function (i) {
       $(this).text("Humidity: " + forecastFull[i].main.humidity + " %");
     });
@@ -80,6 +86,7 @@ function handleSearch(event) {
   cityListVal = buttonClicked.value;
   cityInputVal = $(".city-input-text").val();
 
+  // returns if a value isn't provided from text area or click of a recent search button
   if (cityInputVal === "" && cityListVal === "") {
     return;
   }
@@ -87,12 +94,14 @@ function handleSearch(event) {
     try {
       var coordSearch = "";
       if (cityListVal) {
+        // fetch to get current forecast and city coordinates, this url used if recent search button is clicked
         coordSearch = await fetch(
           "http://api.openweathermap.org/data/2.5/weather?q=" +
             cityListVal +
             "&units=imperial&appid=7e84530e4048780b769d94acf3761dbf"
         );
       } else {
+        // fetch to get current forecast and city coordinates, url used if text is entered into the text area
         coordSearch = await fetch(
           "http://api.openweathermap.org/data/2.5/weather?q=" +
             cityInputVal +
@@ -102,6 +111,7 @@ function handleSearch(event) {
 
       const coordSearchData = await coordSearch.json();
       forecastFull[0] = coordSearchData;
+      // uses coordinates for first API request to get the 5 day forecast
       const forecastSearch = await fetch(
         `https://api.openweathermap.org/data/2.5/forecast?lat=${coordSearchData.coord.lat}&lon=${coordSearchData.coord.lon}&units=imperial&appid=7e84530e4048780b769d94acf3761dbf`
       );
@@ -112,13 +122,15 @@ function handleSearch(event) {
       forecastFull[4] = forecastSearchData.list[30];
       forecastFull[5] = forecastSearchData.list[38];
 
-      // Loop to populate the current forecast and five day forecast sections
       populateCards();
+
+      // adds text entry to array, stores to local storage, and updates list of recent searches
       if (cityInputVal !== "") {
         cityList.push(cityInputVal);
         storeCities();
         renderCityList();
       }
+      // clears the value of the text area
       $(".city-input-text").val("");
     } catch (error) {
       console.log("Error: " + error);
