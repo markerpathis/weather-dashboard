@@ -17,7 +17,7 @@ N/A
 Below are links to the deployed web application and the repository on GitHub.
 
 - https://markerpathis.github.io/weather-dashboard/
-- https://github.com/markerpathis/work-day-scheduler
+- https://github.com/markerpathis/weather-dashboard
 
 Below is a screenshot of the web application:
 
