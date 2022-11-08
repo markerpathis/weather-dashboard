@@ -1,19 +1,18 @@
-var cityInputVal = "";
-var cityListVal = "";
 var citySearchListEl = document.querySelector("#citySearchList");
 var searchButton = document.querySelector("#search-button");
 var forecastFull = [];
 var cityList = [];
+var cityInputVal = "";
+var cityListVal = "";
 
+// Renders the set of buttons for the cities recently searched from the array
 function renderCityList() {
   citySearchListEl.innerHTML = "";
   for (var i = 0; i < cityList.length; i++) {
     var citySearch = cityList[i];
     var newButton = document.createElement("button");
-    newButton.classList.add("city-input");
     newButton.classList.add("btn-block");
     newButton.textContent = citySearch;
-    newButton.style.display = "block";
     newButton.value = citySearch;
     citySearchListEl.appendChild(newButton);
     newButton.addEventListener("click", function (event) {
@@ -22,10 +21,12 @@ function renderCityList() {
   }
 }
 
+// Stores the searched city to local storage
 function storeCities() {
   localStorage.setItem("cityList", JSON.stringify(cityList));
 }
 
+// Init function when page is loaded, pulls recent searches from local storage and renders the city list
 function init() {
   var storedRecentSearches = JSON.parse(localStorage.getItem("cityList"));
   if (storedRecentSearches !== null) {
@@ -37,8 +38,7 @@ function init() {
   });
 }
 
-init();
-
+// Populates the forecast cards
 function populateCards() {
   for (var i = 0; i < forecastFull.length; i++) {
     if (cityInputVal === "") {
@@ -73,6 +73,7 @@ function populateCards() {
   }
 }
 
+// Handles searching for a city in the API from the text search or from the recent search buttons
 function handleSearch(event) {
   event.preventDefault();
   var buttonClicked = event.target;
@@ -124,3 +125,6 @@ function handleSearch(event) {
     }
   })();
 }
+
+// Init function called when page is loaded
+init();
